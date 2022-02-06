@@ -1,3 +1,3 @@
-# next-i18n-exporter
+# next-locales
 
 Hey Next.js!
