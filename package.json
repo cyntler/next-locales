@@ -1,0 +1,52 @@
+{
+  "name": "next-locales",
+  "version": "1.0.0",
+  "description": "Internationalization support for Next.js even with Static HTML export.",
+  "keywords": [
+    "i18n",
+    "next",
+    "nextjs",
+    "html",
+    "export"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./server": "./dist/server.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ],
+      "server": [
+        "./dist/server.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "rimraf ./dist && tsc"
+  },
+  "author": "Damian Cyntler",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^17.0.14",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "find-project-root": "^1.1.1",
+    "mustache": "^4.2.0",
+    "next-language-detector": "^1.0.2",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "@types/mustache": "^4.1.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "next": ">=12.0.10",
+    "react": ">=17.0.2"
+  }
+}
