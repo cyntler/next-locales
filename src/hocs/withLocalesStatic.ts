@@ -34,10 +34,39 @@ export const withLocalesStaticPaths =
       },
     }));
 
+    const modifyPaths = (customPaths: any) => {
+      if (Array.isArray(customPaths)) {
+        const finalPaths = [];
+
+        customPaths.forEach((customPath) => {
+          localePaths.forEach(({ params: { locale } }) => {
+            if (typeof customPath === 'string') {
+              finalPaths.push(
+                `/${locale}${
+                  customPath?.startsWith('/') ? customPath : `/${customPath}`
+                }`,
+              );
+            } else if (customPath?.params) {
+              finalPaths.push({
+                params: {
+                  ...customPath.params,
+                  locale,
+                },
+              });
+            }
+          });
+        });
+
+        return finalPaths;
+      }
+
+      return customPaths;
+    };
+
     return {
       ...customFnResult,
       paths: customFnResult?.paths
-        ? [...customFnResult.paths, ...localePaths]
+        ? modifyPaths(customFnResult.paths)
         : localePaths,
       fallback: false,
     };
