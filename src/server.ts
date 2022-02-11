@@ -1,3 +1,4 @@
+export { nextLocalesConfig } from './hocs/nextLocalesConfig';
 export {
   withLocalesStaticProps,
   withLocalesStaticPaths,
