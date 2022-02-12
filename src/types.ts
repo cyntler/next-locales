@@ -15,7 +15,3 @@ export interface NextLocaleAppProps {
 }
 
 export type TranslateValues = { [key: string]: unknown };
-
-export interface AppWithLocalesOptions {
-  isBrowserDetection: boolean;
-}
