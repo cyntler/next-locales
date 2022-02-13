@@ -1,6 +1,5 @@
 declare module 'find-project-root';
 
-// Workaround related to: https://github.com/vercel/next.js/issues/29788
 declare type StaticImageData = {
   src: string;
   height: number;
