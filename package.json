@@ -9,11 +9,10 @@
     "html",
     "export"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/export/index.js",
+  "types": "./dist/export/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./server": "./dist/server.js"
+    "./server": "./dist/export/server.js"
   },
   "typesVersions": {
     "*": {
