@@ -23,7 +23,20 @@ export const withLocales = (WrappedDocument: ComponentType<AppProps>) => {
           await router.replace(`/${detectedLang}${router.asPath}`);
         }
 
-        langDetector.cache(detectedLang);
+        if (
+          router.route === '/_error' &&
+          !router.asPath.includes(`/${detectedLang}/`)
+        ) {
+          await router.replace(`/${detectedLang}${router.asPath}`);
+          return;
+        }
+
+        if (router.query.locale && router.query?.locale !== detectedLang) {
+          langDetector.cache(router.query.locale?.toString());
+        } else {
+          langDetector.cache(detectedLang);
+        }
+
         setIsMounted(true);
       };
 

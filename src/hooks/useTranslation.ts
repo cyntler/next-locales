@@ -47,5 +47,7 @@ export const useTranslation = () => {
   return {
     t,
     defaultLocale,
+    currentLangTranslations,
+    defaultLangTranslations,
   };
 };
