@@ -17,9 +17,6 @@
   },
   "typesVersions": {
     "*": {
-      ".": [
-        "./dist/exports/index.d.ts"
-      ],
       "server": [
         "./dist/exports/server.d.ts"
       ]
