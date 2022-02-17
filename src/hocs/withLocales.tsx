@@ -8,8 +8,8 @@ const LOADED_LOCALES = [];
 const LOADED_DEFAULT_LOCALE = '';
 const langDetector = createLangDetector(LOADED_LOCALES, LOADED_DEFAULT_LOCALE);
 
-export const withLocales = (WrappedDocument: ComponentType<AppProps>) => {
-  const wrappedGetInitialProps = (WrappedDocument as any)?.getInitialProps;
+export const withLocales = (WrappedApp: ComponentType<AppProps>) => {
+  const wrappedGetInitialProps = (WrappedApp as any)?.getInitialProps;
 
   const LocalesApp = (props: AppProps) => {
     const { pageProps, router } = props;
@@ -43,7 +43,7 @@ export const withLocales = (WrappedDocument: ComponentType<AppProps>) => {
       asyncRun();
     }, []);
 
-    if (!isMounted) {
+    if (!isMounted && process.env.NODE_ENV === 'development') {
       return null;
     }
 
@@ -52,19 +52,19 @@ export const withLocales = (WrappedDocument: ComponentType<AppProps>) => {
 
     return (
       <Provider value={{ locales, defaultLocale }}>
-        <WrappedDocument {...props} />
+        <WrappedApp {...props} />
       </Provider>
     );
   };
 
-  LocalesApp.getInitialProps = async (appContext: AppContext) => {
-    const appProps = await App.getInitialProps(appContext);
-    const wrappedProps = wrappedGetInitialProps
-      ? await wrappedGetInitialProps(appContext)
-      : {};
+  if (wrappedGetInitialProps) {
+    LocalesApp.getInitialProps = async (appContext: AppContext) => {
+      const appProps = await App.getInitialProps(appContext);
+      const wrappedProps = await wrappedGetInitialProps(appContext);
 
-    return { ...appProps, ...wrappedProps };
-  };
+      return { ...appProps, ...wrappedProps };
+    };
+  }
 
   return LocalesApp;
 };
