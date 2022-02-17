@@ -9,7 +9,7 @@ export const useTranslation = () => {
   const { query } = useRouter();
   const { locales, defaultLocale } = useLocalesContext();
 
-  const currentLangName = query?.locale;
+  const currentLangName = query?.locale ?? defaultLocale;
 
   const currentLangTranslations = useMemo(
     () => locales.find((l) => l.name === currentLangName)?.translations,
