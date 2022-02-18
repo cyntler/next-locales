@@ -41,7 +41,7 @@ export const withLocales = (WrappedApp: ComponentType<AppProps>) => {
       };
 
       asyncRun();
-    }, []);
+    }, [props]);
 
     if (!isMounted && process.env.NODE_ENV === 'development') {
       return null;
