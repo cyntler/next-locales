@@ -1,8 +1,8 @@
 import { NextConfig } from 'next';
 import { lstatSync, readlinkSync } from 'fs';
+import { join } from 'path';
 
 import { getConfig } from '../utils/getConfig';
-import { join } from 'path';
 import { getPackagePath } from '../utils/getPackagePath';
 import { replaceLocaleConsts } from '../utils/replaceLocaleConsts';
 import { getSymlinkAbsolutePath } from '../utils/getSymlinkAbsolutePath';
@@ -11,7 +11,9 @@ export const withLocalesConfig = (nextConfig: NextConfig): NextConfig => ({
   ...nextConfig,
   trailingSlash: true,
   webpack: (config, context) => {
-    nextConfig.webpack ? nextConfig.webpack(config, context) : {};
+    if (nextConfig.webpack) {
+      nextConfig.webpack(config, context);
+    }
 
     if (context.isServer) {
       const { locales, defaultLocale } = getConfig();

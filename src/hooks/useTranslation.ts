@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import mustache from 'mustache';
+import { useCallback, useMemo } from 'react';
 
 import { useLocalesContext } from './useLocalesContext';
 import { TranslateValues } from '../types';
-import { useCallback, useMemo } from 'react';
 
 export const useTranslation = () => {
   const { query } = useRouter();
@@ -21,28 +21,31 @@ export const useTranslation = () => {
     [locales, defaultLocale],
   );
 
-  const t = useCallback((key: string, values?: TranslateValues) => {
-    const translations =
-      currentLangTranslations || defaultLangTranslations || {};
+  const t = useCallback(
+    (key: string, values?: TranslateValues) => {
+      const translations =
+        currentLangTranslations || defaultLangTranslations || {};
 
-    const translationStr = key
-      .split('.')
-      .reduce(
-        (acc, current: string) => (acc && acc[current]) || null,
-        translations,
-      )
-      ?.toString();
+      const translationStr = key
+        .split('.')
+        .reduce(
+          (acc, current: string) => (acc && acc[current]) || null,
+          translations,
+        )
+        ?.toString();
 
-    try {
-      return mustache.render(translationStr, values);
-    } catch (err) {
-      if (translationStr) {
-        return translationStr;
+      try {
+        return mustache.render(translationStr, values);
+      } catch (err) {
+        if (translationStr) {
+          return translationStr;
+        }
+
+        return key;
       }
-
-      return key;
-    }
-  }, []);
+    },
+    [currentLangTranslations, defaultLangTranslations],
+  );
 
   return {
     t,
