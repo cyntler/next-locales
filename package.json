@@ -1,13 +1,14 @@
 {
   "name": "next-locales",
   "version": "1.0.0",
-  "description": "Internationalization support for Next.js even with Static HTML export.",
+  "description": "Internationalization support for Next.js with static HTML export.",
   "keywords": [
     "i18n",
-    "next",
-    "nextjs",
     "html",
-    "export"
+    "export",
+    "internationalization",
+    "nextjs",
+    "static"
   ],
   "main": "./dist/exports/index.js",
   "types": "./dist/exports/index.d.ts",
