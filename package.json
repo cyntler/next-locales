@@ -24,7 +24,9 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint ./src --ext ts,tsx",
+    "prettier": "prettier --check ./src"
   },
   "author": "Damian Cyntler",
   "license": "MIT",
@@ -38,7 +40,11 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
+    "@cyntler/eslint-config": "^0.0.1",
+    "@rushstack/eslint-patch": "^1.1.0",
     "@types/mustache": "^4.1.2",
+    "eslint": "^8.9.0",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.5"
   },
