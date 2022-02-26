@@ -43,8 +43,10 @@
   "devDependencies": {
     "@cyntler/eslint-config": "^0.0.2",
     "@rushstack/eslint-patch": "^1.1.0",
+    "@types/jest": "^27.4.1",
     "@types/mustache": "^4.1.2",
     "eslint": "^8.9.0",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.5"
