@@ -45,6 +45,7 @@
   "devDependencies": {
     "@cyntler/eslint-config": "^0.0.2",
     "@rushstack/eslint-patch": "^1.1.0",
+    "@testing-library/react": "^12.1.3",
     "@types/jest": "^27.4.1",
     "@types/mustache": "^4.1.2",
     "eslint": "^8.9.0",
