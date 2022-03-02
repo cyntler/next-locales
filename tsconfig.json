@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "allowJs": true,
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
   "exclude": ["./dist"]
 }
