@@ -6,6 +6,7 @@ import { createLangDetector } from '../utils/createLangDetector';
 
 const LOADED_LOCALES = [];
 const LOADED_DEFAULT_LOCALE = '';
+
 const langDetector = createLangDetector(LOADED_LOCALES, LOADED_DEFAULT_LOCALE);
 
 export const withLocales = (WrappedApp: ComponentType<AppProps>) => {
