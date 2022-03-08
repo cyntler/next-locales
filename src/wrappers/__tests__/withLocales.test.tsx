@@ -17,8 +17,6 @@ test('hoc returns function', () => {
 
 test('hoc result returns react component', () => {
   const Component = () => hocResult({});
-
   const componentRenderResult = renderToString(<Component />);
-
   expect(componentRenderResult).toBe('<div>test</div>');
 });
