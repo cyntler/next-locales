@@ -18,7 +18,9 @@ export const Link: FunctionComponent<LinkProps> = ({
   if (!hrefValue.includes('http')) {
     hrefValue = hrefValue.includes('[locale]')
       ? pathname.replace('[locale]', finalLocale)
-      : `/${finalLocale}${href}`;
+      : `${finalLocale ? `/${finalLocale}` : ''}${
+          hrefValue.startsWith('/') ? href : `/${hrefValue}`
+        }`;
   }
 
   return (
