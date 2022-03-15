@@ -7,6 +7,6 @@ export const initialValue: LocalesContextValue = {
   defaultLocale: '',
 };
 
-export const LocalesContext = createContext<LocalesContextValue>(initialValue);
+export const LocalesContext = createContext<LocalesContextValue>(null);
 
 export const { Provider } = LocalesContext;
