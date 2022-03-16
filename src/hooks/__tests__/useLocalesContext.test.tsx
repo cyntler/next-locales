@@ -18,7 +18,7 @@ test('render component with useLocalesContext hook without provider throws an er
   );
 });
 
-test('render component with useLocalesContext hook wit provider not throws an error', () => {
+test('render component with useLocalesContext hook with provider not throws an error', () => {
   expect(() =>
     render(
       <Provider value={{ defaultLocale: '', locales: [] }}>
