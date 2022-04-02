@@ -18,8 +18,8 @@ test('it renders link with "/" href', () => {
   const linkContent = 'test';
 
   render(<Link href={linkHref}>{linkContent}</Link>);
-
   const linkElement = screen.getByText(linkContent);
+
   expect(linkElement).toBeDefined();
   expect(linkElement.getAttribute('href')).toBe(linkHref);
 });
@@ -34,8 +34,8 @@ test('it renders link with "test" href and elements content', () => {
   );
 
   render(<Link href={linkHref}>{linkContent}</Link>);
-
   const linkElement = screen.getByRole('link');
+
   expect(linkElement).toBeDefined();
   expect(linkElement.getAttribute('href')).toBe(linkHref);
 });
