@@ -11,11 +11,11 @@ beforeEach(() => {
   hocResult = withLocales(() => <div>test</div>);
 });
 
-test('hoc returns function', () => {
+test('wrapper returns function', () => {
   expect(typeof hocResult).toBe('function');
 });
 
-test('hoc result returns react component', () => {
+test('wrapper function returns react component', () => {
   const Component = () => hocResult({});
   const componentRenderResult = renderToString(<Component />);
 
