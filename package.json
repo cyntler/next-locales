@@ -10,10 +10,10 @@
     "nextjs",
     "static"
   ],
-  "main": "./dist/exports/index.js",
-  "types": "./dist/exports/index.d.ts",
+  "main": "./dist/exports/client.js",
+  "types": "./dist/exports/client.d.ts",
   "exports": {
-    ".": "./dist/exports/index.js",
+    ".": "./dist/exports/client.js",
     "./server": "./dist/exports/server.js"
   },
   "typesVersions": {

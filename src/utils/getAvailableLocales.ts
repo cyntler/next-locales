@@ -6,10 +6,10 @@ import { getConfig } from './getConfig';
 import { getProjectRoot } from './getProjectRoot';
 import { parseFileContentToObj } from './parseFileContentToObj';
 
-const projectRoot = getProjectRoot();
-const { localesDir, locales } = getConfig();
-
 export const getAvailableLocales = (): Locale[] => {
+  const projectRoot = getProjectRoot();
+  const { localesDir, locales } = getConfig();
+
   const localesAbsolutePath = join(projectRoot, localesDir);
   const localeFileNames = readdirSync(localesAbsolutePath);
 
