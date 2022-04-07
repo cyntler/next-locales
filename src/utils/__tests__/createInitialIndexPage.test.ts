@@ -1,6 +1,6 @@
 import { createInitialIndexPage } from '../createInitialIndexPage';
 
-test('it returns function', () => {
+test('return function', () => {
   const result = createInitialIndexPage();
 
   expect(typeof result).toBe('function');

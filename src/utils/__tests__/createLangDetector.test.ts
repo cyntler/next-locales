@@ -1,6 +1,6 @@
 import { createLangDetector } from '../createLangDetector';
 
-test('it returns next-language-detector detect method', () => {
+test('has detect method from next-language-detector', () => {
   const result = createLangDetector([], '');
 
   expect(result.detect).toBeDefined();
