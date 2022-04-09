@@ -5,7 +5,6 @@
     "target": "ES2015",
     "declaration": true,
     "outDir": "./dist",
-    "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "skipLibCheck": true
