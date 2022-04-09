@@ -10,6 +10,7 @@
     "nextjs",
     "static"
   ],
+  "repository": "https://github.com/cyntler/next-locales",
   "main": "./dist/exports/client.js",
   "types": "./dist/exports/client.d.ts",
   "exports": {
