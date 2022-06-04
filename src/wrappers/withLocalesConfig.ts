@@ -22,7 +22,7 @@ export const withLocalesConfig = (nextConfig: NextConfig): NextConfig => ({
         const packagePath = getPackagePath();
         const stat = lstatSync(packagePath);
 
-        const jsFilePath = 'dist/hocs/withLocales.js';
+        const jsFilePath = 'dist/wrappers/withLocales.js';
 
         if (stat?.isSymbolicLink()) {
           const symlink = readlinkSync(packagePath);

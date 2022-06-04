@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
 interface LinkProps extends NextLinkProps {}
 
-export const Link: FunctionComponent<LinkProps> = ({
+export const Link: FunctionComponent<PropsWithChildren<LinkProps>> = ({
   children,
   locale,
   href,
