@@ -2,6 +2,7 @@ import App, { AppContext, AppProps } from 'next/app';
 import React, { ComponentType, useEffect, useState } from 'react';
 
 import { Provider } from '../contexts/LocalesContext';
+import { Locale } from '../types';
 import { createLangDetector } from '../utils/createLangDetector';
 
 const LOADED_LOCALES = [];
@@ -12,7 +13,9 @@ const langDetector = createLangDetector(LOADED_LOCALES, LOADED_DEFAULT_LOCALE);
 export const withLocales = (WrappedApp: ComponentType<AppProps>) => {
   const wrappedGetInitialProps = (WrappedApp as any)?.getInitialProps;
 
-  const LocalesApp = (props: AppProps) => {
+  const LocalesApp = (
+    props: AppProps<{ nextLocales: Locale[]; nextDefaultLocale: string }>,
+  ) => {
     const { pageProps, router } = props;
     const [isMounted, setIsMounted] = useState(false);
 
