@@ -37,7 +37,7 @@ In the next step, edit your `next.config.js` file, importing in it high order fu
 
 Let it look something like this:
 
-```javascript
+```typescript
 const { withLocalesConfig } = require('next-locales/server');
 
 module.exports = withLocalesConfig({
@@ -179,11 +179,30 @@ export default ExamplePage;
 
 The useTranslation hook returns the `t` function. It takes a translation key as the first parameter, and an object for replacing placeholders as the second optional parameter.
 
+## Support for links with the Link component
+
+This library provides a modified `Link` component to be used for any links and redirects in the application. It provides support for locales.
+
+```typescript
+import {
+  withLocalesStaticProps,
+  withLocalesStaticPaths,
+} from 'next-locales/server';
+import { Link } from 'next-locales';
+
+const ExamplePage = () => <Link href="/example/page">Page</Link>;
+
+export const getStaticProps = withLocalesStaticProps();
+export const getStaticPaths = withLocalesStaticPaths();
+
+export default ExamplePage;
+```
+
 ## Setting the lang attribute
 
 To set the `lang` attribute for the `<html>` tag, create a custom document `_document.jsx` file:
 
-```javascript
+```typescript
 import { Html, Head, Main, NextScript } from 'next/document';
 import { getLangAttrValue } from 'next-locales/server';
 
