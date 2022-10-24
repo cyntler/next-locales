@@ -1,6 +1,6 @@
 {
   "name": "next-locales",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Internationalization support for Next.js with static HTML export.",
   "keywords": [
     "i18n",
