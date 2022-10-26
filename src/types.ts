@@ -15,3 +15,7 @@ export interface NextLocaleAppProps {
 }
 
 export type TranslateValues = { [key: string]: unknown };
+
+export type LocaleConfig = Partial<{
+  dir: string;
+}>;

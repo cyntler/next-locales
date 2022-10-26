@@ -2,7 +2,7 @@ import { NEXT_DATA } from 'next/dist/shared/lib/utils';
 
 import { getAvailableLocales } from './getAvailableLocales';
 import { getLangAttrValue } from './getLangAttrValue';
-import { getLocaleConfig } from './getTranslationConfig';
+import { getLocaleConfig } from './getLocaleConfig';
 
 export const getDirAttrValue = (nextData: NEXT_DATA): string => {
   const lang = getLangAttrValue(nextData);
