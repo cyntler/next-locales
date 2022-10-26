@@ -200,7 +200,7 @@ export default ExamplePage;
 
 ## Setting the lang attribute
 
-To set the `lang` attribute for the `<html>` tag, create a custom document `_document.jsx` file:
+To set the `lang` attribute for the `<html>` tag, create a custom document `_document.jsx` file and use the `getLangAttrValue` function:
 
 ```typescript
 import { Html, Head, Main, NextScript } from 'next/document';
@@ -218,6 +218,62 @@ const CustomDocument = ({ __NEXT_DATA__ }) => (
 
 export default CustomDocument;
 ```
+
+## Setting the dir attribute for the locale
+
+To set the `dir` attribute for the `<html>` tag, you need to add a special `__config` section in the translation file and provide a value for the `dir` field:
+
+en.yml
+
+```yml
+__config:
+  dir: rtl
+```
+
+The field value is validated. It currently takes the values `ltr`, `rtl`, and `auto`. The default is `ltr`.
+
+The next step is to get the `dir` value for the currently active locale.
+You do this in a similar way as seen above, when setting the `lang` attribute but here you are using a slightly different function with the name `getDirAttrValue`:
+
+```typescript
+import { Html, Head, Main, NextScript } from 'next/document';
+import { getDirAttrValue } from 'next-locales/server';
+
+const CustomDocument = ({ __NEXT_DATA__ }) => (
+  <Html lang={getDirAttrValue(__NEXT_DATA__)}>
+    <Head />
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+);
+
+export default CustomDocument;
+```
+
+## Setting the lang and dir attribute at once
+
+This library also provides a util, with which you can get an object with the `lang` and `dir` fields with one function and insert it like this:
+
+```typescript
+import { Html, Head, Main, NextScript } from 'next/document';
+import { getHtmlLocaleAttributes } from 'next-locales/server';
+
+const CustomDocument = ({ __NEXT_DATA__ }) => (
+  <Html {...getHtmlLocaleAttributes(__NEXT_DATA__)}>
+    <Head />
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+);
+
+export default CustomDocument;
+```
+
+The use of this function may override the setting of the `lang` and `dir` attributes separately.
 
 ## Acknowledgments
 
