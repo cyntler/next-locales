@@ -240,7 +240,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 import { getDirAttrValue } from 'next-locales/server';
 
 const CustomDocument = ({ __NEXT_DATA__ }) => (
-  <Html lang={getDirAttrValue(__NEXT_DATA__)}>
+  <Html dir={getDirAttrValue(__NEXT_DATA__)}>
     <Head />
     <body>
       <Main />
